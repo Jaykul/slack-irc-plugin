@@ -44,7 +44,6 @@ This will launch the bot in your terminal based on provided configuration.
 - `token`: Your Slack API token, get your token at https://api.slack.com/
 - `channels`: Map of IRC channel to Slack channel names, with optional password
 - `users`: Map of IRC nick to Slack username
-- `silent`: Set to true to stop IRC bot from speaking into the channel
 - `highlight:` Set to true to turn off unicode zero-width character insertion in nicks for IRC
 - `slackmark:` Any text value will be appended to usernames from IRC when sent to slack
 
