@@ -1,11 +1,11 @@
 # Slack IRC Plugin
 
-IRC integration with [slack](http://slack.com).
+Bidirectional IRC integration with [slack](http://slack.com), with simple functionality like avoiding higlighting yourself on IRC, etc.
 
 ## Usage
 
 ```javascript
-git clone https://github.com/jimmyhillis/slack-irc-plugin.git
+git clone https://github.com/jaykul/slack-irc-plugin.git
 cd slack-irc-plugin
 npm install
 ```
@@ -15,11 +15,9 @@ Write your own configuration file (`config-example.js`) is a good starting point
 ```javascript
 var config = {
     // required
-    server: 'irc.freenode.com',
-    port: 6667,
-    secure: false,
-    password: '(optional)',
+    server: 'irc.freenode.net',
     nick: 'slackbot',
+    password: '(optional)',
     username: 'slackbot-username',
     token: 'XXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXXXXXX-XXXXXX',
     channels: {
@@ -28,9 +26,6 @@ var config = {
     users: {
         '~irclogin': 'slackuser'
     },
-    // optionals
-    silent: false // default
-    // node-irc options
     floodProtection: true
 }
 ```
@@ -50,4 +45,10 @@ This will launch the bot in your terminal based on provided configuration.
 - `channels`: Map of IRC channel to Slack channel names, with optional password
 - `users`: Map of IRC nick to Slack username
 - `silent`: Set to true to stop IRC bot from speaking into the channel
+- `highlight:` Set to true to turn off unicode zero-width character insertion in nicks for IRC
+- `slackmark:` Any text value will be appended to usernames from IRC when sent to slack
+
+Note that additionally, some nodejs irc settings are allowed:
+
+`floodProtection`, `port`, `debug`, `showErrors`, `autoRejoin`, `autoConnect`, `secure`, `selfSigned`, `certExpired`, `floodProtection`, `floodProtectionDelay`, `sasl`, `stripColors`, `channelPrefixes`, `messageSplit`, `password`
 
